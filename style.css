@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+:root {
+    /* THEME 1 */
+    --main-background-theme1: hsl(222, 26%, 31%);
+    --toggle-background-keypad-background-theme1: hsl(223, 31%, 20%);
+    --calc-screen-background-theme1: hsl(224, 36%, 15%);
+
+    --delete-key-background-theme1: hsl(225, 21%, 49%);
+    --delete-key-shadow-theme1: hsl(224, 28%, 35%);
+    --equal-key-background-toggle-theme1: hsl(6, 63%, 50%);
+    --equal-key-shadow-theme1: hsl(6, 70%, 34%);
+    --number-key-background-theme1: hsl(30, 25%, 89%);
+    --number-key-shadow-theme1: hsl(28, 16%, 65%);
+
+    --key-texts-theme1: hsl(0, 0%, 100%);
+    --calc-screen-text-theme1: hsl(221, 14%, 31%);
+    
+    /* THEME 2 */
+    --main-background-theme2: hsl(0, 0%, 90%);
+    --toggle-background-keypad-background-theme2: hsl(0, 5%, 81%);
+    --calc-screen-background-theme2: hsl(0, 0%, 93%);
+
+    --delete-reset-key-background-theme2: hsl(185, 42%, 37%);
+    --delete-reset-key-shadow-theme2: hsl(185, 58%, 25%);
+    --equal-key-background-toggle-theme2: hsl(25, 98%, 40%);
+    --equal-key-shadow-theme2: hsl(25, 99%, 27%);
+    --number-key-background-theme2: hsl(45, 7%, 89%);
+    --number-key-shadow-theme2: hsl(35, 11%, 61%);
+    
+    --key-texts-theme2: hsl(60, 10%, 19%);
+    --calc-screen-text-theme2: hsl(0, 0%, 100%);
+   
+    /* THEME 3 */
+    --main-background-theme3: hsl(268, 75%, 9%);
+    --toggle-background-keypad-background-calc-screen-theme3: hsl(268, 71%, 12%);
+
+    --delete-reset-key-background-theme3: hsl(281, 89%, 26%);
+    --delete-reset-key-shadow-theme3: hsl(285, 91%, 52%);
+    --equal-key-background-toggle-theme3: hsl(176, 100%, 44%);
+    --equal-key-shadow-theme3: hsl(177, 92%, 70%);
+    --number-key-background-theme3: hsl(268, 47%, 21%);
+    --number-key-shadow-theme3: hsl(290, 70%, 36%);
+    
+    --key-texts-calc-screen-text-theme3: hsl(52, 100%, 62%);
+    --equal-key-text: hsl(198, 20%, 13%);
+    --reset-text: hsl(0, 0%, 100%);
+}
+html {
+    height: 100%;
+}
+
+body {
+    padding: 7%;
+    height: 100%;
+    font-family: 'League Spartan', sans-serif;
+}
+
+
+
+.calculator {
+    height: 100%;
+    width: clamp(250px,100%, 350px);
+    margin: auto;
+}
+
+.calculator header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.theme-toggle {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle p {
+    font-size: 0.3rem;
+}
+
+.calc-screen {
+    width: 100%;
+
+}
+
+/* The below code is used to remove the increase and decrease arrows on the number input elememnt for chrome and safari*/
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.calc-screen input {
+    height: 80px;
+    width: 100%;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: right;
+    &:focus {
+        outline: none;
+    }
+}
+
+.keys {
+    height: 75%;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    border-radius: 10px;
+}
+
+.key-rows {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.key {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+.del, 
+.reset, 
+.equal {
+    font-size: 0.5rem;
+    font-weight: bolder;
+    color: var(--key-texts-theme1);
+}
+
+.reset {
+    grid-column: 1 / span 2;
+}
+.equal {
+    grid-column: 3 / span 2;
+}
+
+
+
+
+
+/* THEMES */
+/* 
+.hd-thm-1: header, toggle and input color
+.bg-thm-1: body background color
+.k-thm-1: key area background color 
+.key-thm-1: regular key color and bg color
+.d1: del and reset bg color and color
+*/
+.bg-thm-1 {
+    background-color: var(--main-background-theme1);
+}
+.bg-thm-2 {
+    background-color: var(--main-background-theme2);
+}
+.bg-thm-3 {
+    background-color: var(--main-background-theme3);
+}
+
+
+.hd-thm-1 {
+    color: var(--key-texts-theme1);
+}
+.hd-thm-2 {
+    color: var(--key-texts-theme2);
+}
+.hd-thm-3 {
+    color: var(--key-texts-calc-screen-text-theme3);
+}
+
+.hd-thm-1 input{
+    color: var(--key-texts-theme1);
+    background-color: var(--calc-screen-background-theme1);
+}
+.hd-thm-2 input{
+    color: var(--key-texts-theme2);
+    background-color: var(--calc-screen-background-theme2);
+}
+.hd-thm-3 input{
+    color: var(--key-texts-calc-screen-text-theme3);
+    background-color: var(--toggle-background-keypad-background-calc-screen-theme3);
+}
+
+.k-thm-1 {
+    background-color: var(--toggle-background-keypad-background-theme1);
+}
+.k-thm-2 {
+    background-color: var(--toggle-background-keypad-background-theme2);
+}
+.k-thm-3 {
+    background-color: var(--toggle-background-keypad-background-calc-screen-theme3);
+}
+
+.key-thm-1 {
+    border-bottom: 4px solid var(--number-key-shadow-theme1);
+    color: var(--calc-screen-text-theme1);
+    background-color: var(--number-key-background-theme1);
+}
+.key-thm-2 {
+
+    border-bottom: 4px solid var(--number-key-shadow-theme2);
+    color: var(--key-texts-theme2);
+    background-color: var(--number-key-background-theme2);
+}
+.key-thm-3 {
+
+    border-bottom: 4px solid var(--number-key-shadow-theme3);
+    color: var(--key-texts-calc-screen-text-theme3);
+    background-color: var(--number-key-background-theme3);
+}
+
+.d1 {
+
+    background-color: var(--delete-key-background-theme1);
+    border-bottom: 4px solid var(--delete-key-shadow-theme1)
+}
+.d2 {
+
+    background-color: var(--delete-reset-key-background-theme2);
+    border-bottom: 4px solid var(--delete-reset-key-shadow-theme2)
+}
+.d3 {
+
+    background-color: var(--delete-reset-key-background-theme3);
+    border-bottom: 4px solid var(--delete-reset-key-shadow-theme3)
+}
+
+.eq1 {
+    background-color: var(--equal-key-background-toggle-theme1);
+    border-bottom: 4px solid var(--equal-key-shadow-theme1);
+    &:hover {
+        cursor: pointer;
+        background-color: hsl(6, 71%, 57%);
+    }
+}
+.eq2 {
+
+    background-color: var(--equal-key-background-toggle-theme2);
+    border-bottom: 4px solid var(--equal-key-shadow-theme2);
+    &:hover {
+        cursor: pointer;
+        background-color: hsl(25, 62%, 68%);
+    }
+}
+.eq3 {
+
+    background-color: var(--equal-key-background-toggle-theme3);
+    border-bottom: 4px solid var(--equal-key-shadow-theme3);
+    color: var(--equal-key-text);
+    &:hover {
+        cursor: pointer;
+        background-color: hsl(176, 56%, 70%);
+    }
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    border-radius: 50px;
+    height: 25px;
+}
+
+.toggle input {
+  border: none;
+  height: 20px;
+  width: 20px;
+  appearance: none;
+  border-radius: 50%;
+  opacity: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#one {
+    opacity: 1;
+}
+
+

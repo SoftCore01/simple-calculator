@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Calculator app</title>
+</head>
+<body class="bg-thm-1">
+  <div class="calculator">
+    <header>
+      <h1 class="hd-thm-1">calc</h1>
+
+      <div class="theme-toggle">
+        <p class="hd-thm-1">THEME</p>
+        <div class="toggle k-thm-1">
+          <input class="button eq1" type="radio" name="toggle" id="one" />
+          <input class="button eq2" type="radio" name="toggle" id="two" />
+          <input class="button eq3" type="radio" name="toggle" id="three" />
+        </div>
+      </div>
+    </header>
+    <div class="calc-screen hd-thm-1">
+      <input type="number" placeholder="0">
+    </div>
+
+    <div class="keys k-thm-1">
+
+      <div class="key-rows">
+        <button class="key key-thm-1" id="7">7</button>
+        <button class="key key-thm-1" id="8">8</button>
+        <button class="key key-thm-1" id="9">9</button>
+        <button class="del key d1" id="del">DEL</button>
+      </div>
+
+      <div class="key-rows">
+        <button class="key key-thm-1" id="4">4</button>
+        <button class="key key-thm-1" id="5">5</button>
+        <button class="key key-thm-1" id="6">6</button>
+        <button class="key key-thm-1" id="plus">+</button>
+      </div>
+      
+      <div class="key-rows">
+        <button class="key key-thm-1" id="1">1</button>
+        <button class="key key-thm-1" id="2">2</button>
+        <button class="key key-thm-1" id="3">3</button>
+        <button class="key key-thm-1" id="minus">-</button>
+      </div>
+      
+      <div class="key-rows">
+        <button class="key key-thm-1" id="dot">.</button>
+        <button class="key key-thm-1" id="0">0</button>
+        <button class="key key-thm-1" id="divide">/</button>
+        <button class="key key-thm-1" id="multiple">x</button>
+      </div>
+      
+      <div class="key-rows">
+        <button class="reset key d1" id="reset">RESET</button>
+        <button class="equal key eq1" id="equal">=</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
