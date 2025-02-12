@@ -107,26 +107,113 @@ let numbers = document.querySelectorAll(".number");
 let calcScreen = document.querySelector("#calc-screen");
 let deleteButton = document.querySelector(".del");
 let resetButton = document.querySelector(".reset");
+let dotButton = document.querySelector(".dot");
+let plusButton = document.querySelector(".plus")
+let minusButton = document.querySelector(".minus")
+let divideButton = document.querySelector(".divide")
+let mulitpleButton = document.querySelector(".multiple")
+let equalButton = document.querySelector(".equal");
 
+
+var firstValue;
+var secondValue;
+var operatorValue;
 
 numbers.forEach( (number) => {
   number.addEventListener("click", () => {
     calcScreen.value += number.value;
   })
-})
-
-deleteButton.addEventListener("click", () => {
-  let calString = calcScreen.value.split("");
-  calString.pop();
-  calcScreen.value = calString.join("");
-})
-
-resetButton.addEventListener("click", () => {
-  calcScreen.value = "";
-})
+});
 
 window.addEventListener("keydown", (e) => {
   if (e.code == "Escape" || e.code == "Delete") {
-    calcScreen.value = "";
-  } else if (e.code == "") {}
+    clearAll();
+  } else if (e.code == "Backspace") {
+    backSpace();
+  }
+});
+
+
+deleteButton.addEventListener("click", backSpace);
+resetButton.addEventListener("click", clearAll);
+
+plusButton.addEventListener("click", () => {
+  operatorValue = "+";
+  getFirstValue();
 })
+minusButton.addEventListener("click", () => {
+  operatorValue = "-";
+  getFirstValue();
+})
+mulitpleButton.addEventListener("click", () => {
+  operatorValue = "*";
+  getFirstValue();
+})
+divideButton.addEventListener("click", () => {
+  operatorValue = "/";
+  getFirstValue();
+})
+
+equalButton.addEventListener("click", () => {
+  if (operatorValue == "+") {
+    getAnswer();
+    calcScreen.value = String(add(firstValue, secondValue));
+    firstValue = 0;
+    secondValue = 0;
+  }
+  if (operatorValue == "-") {
+    getAnswer();
+    calcScreen.value = String(subtract(firstValue, secondValue));
+    firstValue = 0;
+    secondValue = 0;
+  }
+  if (operatorValue == "*") {
+    getAnswer();
+    calcScreen.value = String(multiple(firstValue, secondValue));
+    firstValue = 0;
+    secondValue = 0;
+  }
+  if (operatorValue == "/") {
+    getAnswer();
+    calcScreen.value = String(divide(firstValue, secondValue));
+    firstValue = 0;
+    secondValue = 0;
+  }
+})
+
+
+
+
+
+
+function backSpace() {
+  let calString = calcScreen.value.split("");
+  calString.pop();
+  calcScreen.value = calString.join("");
+}
+
+function clearAll() {
+  calcScreen.value = "";
+}
+
+function getFirstValue() {
+  firstValue = Number(calcScreen.value);
+  calcScreen.value = "";
+}
+
+function getAnswer() {
+  secondValue = Number(calcScreen.value);
+}
+
+function add(value1, value2) {
+  return value1 + value2;
+}
+function subtract(value1, value2) {
+  return value1 - value2;
+}
+function multiple(value1, value2) {
+  return value1 * value2;
+}
+function divide(value1, value2) {
+  return value1 / value2;
+}
