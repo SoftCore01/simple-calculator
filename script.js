@@ -102,3 +102,31 @@ function changeColor(colorAdd, el) {
   el.classList.remove(el.classList.item(el.classList.length - 1)) 
   el.classList.add(colorAdd)
 }
+
+let numbers = document.querySelectorAll(".number");
+let calcScreen = document.querySelector("#calc-screen");
+let deleteButton = document.querySelector(".del");
+let resetButton = document.querySelector(".reset");
+
+
+numbers.forEach( (number) => {
+  number.addEventListener("click", () => {
+    calcScreen.value += number.value;
+  })
+})
+
+deleteButton.addEventListener("click", () => {
+  let calString = calcScreen.value.split("");
+  calString.pop();
+  calcScreen.value = calString.join("");
+})
+
+resetButton.addEventListener("click", () => {
+  calcScreen.value = "";
+})
+
+window.addEventListener("keydown", (e) => {
+  if (e.code == "Escape" || e.code == "Delete") {
+    calcScreen.value = "";
+  } else if (e.code == "") {}
+})
