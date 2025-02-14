@@ -154,11 +154,22 @@ divideButton.addEventListener("click", () => {
   getFirstValue();
 })
 
+dotButton.addEventListener("click", () => {
+  let calcValue = calcScreen.value.split("");
+  calcValue.forEach((el) => {
+    if (el == ".") {
+    
+    }
+  })
+  calcScreen.value += ".";
+
+})
+
 equalButton.addEventListener("click", () => {
   if (operatorValue == "+") {
     getAnswer();
     calcScreen.value = String(add(firstValue, secondValue));
-    firstValue = 0;
+    firstValue = add(firstValue, secondValue);
     secondValue = 0;
   }
   if (operatorValue == "-") {
@@ -183,9 +194,6 @@ equalButton.addEventListener("click", () => {
 
 
 
-
-
-
 function backSpace() {
   let calString = calcScreen.value.split("");
   calString.pop();
@@ -194,6 +202,8 @@ function backSpace() {
 
 function clearAll() {
   calcScreen.value = "";
+  firstValue = 0;
+  secondValue = 0;
 }
 
 function getFirstValue() {
@@ -204,7 +214,6 @@ function getFirstValue() {
 function getAnswer() {
   secondValue = Number(calcScreen.value);
 }
-
 function add(value1, value2) {
   return value1 + value2;
 }
